@@ -1,6 +1,8 @@
 import os
 from config import MAX_CHARS
 
+
+
 def get_file_content(working_directory, file_path):
 
     absolute_working_directory = os.path.abspath(working_directory)
@@ -11,7 +13,7 @@ def get_file_content(working_directory, file_path):
     if not os.path.isfile(absolute_path):
         return f'Error: File not found or is not a regular file: "{file_path}"'
     
-    
+
     try:
         with open(absolute_path, "r") as f:
             file_content_string = f.read(MAX_CHARS)
@@ -20,3 +22,6 @@ def get_file_content(working_directory, file_path):
             return file_content_string
     except Exception as e:
         return f"Error: {e}"
+
+
+

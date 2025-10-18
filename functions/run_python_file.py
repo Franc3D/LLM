@@ -8,11 +8,11 @@ def run_python_file(working_directory, file_path, args=[]):
     absolute_path = os.path.abspath(os.path.join(working_directory, file_path))
 
     if absolute_working_directory not in absolute_path:
-        return f"Error: Cannot execute {file_path} as it is outside the permitted working directory"
+        return f"Error: Cannot execute \"{file_path}\" as it is outside the permitted working directory"
     if not os.path.isfile(absolute_path):
-        return f"Error: File {file_path} not found."
+        return f"Error: File \"{file_path}\" not found."
     if not os.path.splitext(absolute_path)[1] == ".py":
-        return f"Error: {file_path} is not a Python file."
+        return f"Error: \"{file_path}\" is not a Python file."
     
     try:
         completed_process = subprocess.run(["python3", absolute_path] + args, timeout=30, capture_output=True, cwd=absolute_working_directory)
